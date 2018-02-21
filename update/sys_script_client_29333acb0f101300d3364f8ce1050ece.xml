@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>When Needed dropdown gets refreshed based on Request type selection</description>
+        <field>u_request_type</field>
+        <global>true</global>
+        <messages/>
+        <name>WhatNeededOnRequestType</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   /*if (isLoading) {
+      return;
+   }
+	if(g_form.getValue("u_what_needed")!=''){
+		jslog("What needed already set");
+		return;
+		
+	}*/
+	jslog("OldValue - "+oldValue+" New value - "+newValue);
+	g_form.clearOptions("u_what_needed");
+	if(newValue === 'hr'){
+		jslog("What needed options for Human Resources");
+		g_form.addOption("u_what_needed","hr1","Human Resources 1");
+		g_form.addOption("u_what_needed","hr2", "Human Resources 2");
+		g_form.addOption("u_what_needed", "other","Other");
+	}else if(newValue === 'facilities'){
+		jslog("What needed option for Facilities");
+		g_form.addOption("u_what_needed", "facilities1", "Facilities 1");
+		g_form.addOption("u_what_needed", "facilities2", "Facilities 2");
+		g_form.addOption("u_what_needed", "other", "Other");
+	}else if(newValue === 'legal'){
+		jslog("What needed option for Legal");
+		g_form.addOption("u_what_needed", "legal1", "Legal1");
+		g_form.addOption("u_what_needed", "legal2", "Legal2");
+		g_form.addOption("u_what_needed", "other", "Other");
+	}else if(newValue === ''){
+		jslog("What needed with full option list");
+		g_form.addOption("u_what_needed", "hr1", "Human Resources1");
+		g_form.addOption("u_what_needed", "hr2", "Human Resources2");
+		g_form.addOption("u_what_needed", "facilities1", "Facilities1");
+		g_form.addOption("u_what_needed", "facilities2", "Facilities2");
+		g_form.addOption("u_what_needed", "legal1", "Legal1");
+		g_form.addOption("u_what_needed", "legal2", "Legal2");
+		g_form.addOption("u_what_needed", "other", "Other");
+	}
+
+   //Type appropriate comment here, and begin script below
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-02-20 05:36:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>29333acb0f101300d3364f8ce1050ece</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>WhatNeededOnRequestType</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_29333acb0f101300d3364f8ce1050ece</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-02-20 07:47:23</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
